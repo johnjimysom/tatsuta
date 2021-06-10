@@ -14,25 +14,32 @@ using namespace std;
 
 int main() {
 
-    ifstream ip("qr-scan-sample-3c.csv");
+    ifstream ip("qr-scan-2.csv");
 
     if (!ip.is_open()) std::cout << "ERROR: File Open" << '\n';
 
     string barcode;
-    string vendor;
-   // string description;
     string quantities;
-
-    while (ip.good()) {
+    string notes;
+    string date;
+   // string vendor;
+   // string description;
+    
+    while (ip.good()) { //or EOF: end of file
 
         getline(ip, barcode, ',');
-        getline(ip, vendor, ',');
+        getline(ip, quantities, ',');
+        getline(ip, notes, ',');
+        getline(ip, date, '\n');
+       //getline(ip, vendor, ',');
        // getline(ip, description, ',');
-        getline(ip, quantities, '\n');
+       // getline(ip, quantities, '\n');
 
         std::cout << "Barcode: " << barcode << '\n';
-        std::cout << "Vendor: " << vendor << '\n';
         std::cout << "Quantities: " << quantities << '\n';
+        std::cout << "Notes: " << barcode << '\n';
+        std::cout << "Date Scanned: " << date << '\n';
+        //std::cout << "Vendor: " << vendor << '\n';
         std::cout << "-----------------------------------------------" << '\n';
     }
 
