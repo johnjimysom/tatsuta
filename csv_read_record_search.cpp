@@ -9,11 +9,13 @@
 #include <string>
 #include <vector>
 
-
 using namespace std;
+
+
 
 int main() {
 
+    cout << "Besure you have the most updated version: " << '\n';
     ifstream ip("qr-scan-2.csv");
 
     if (!ip.is_open()) std::cout << "ERROR: File Open" << '\n';
@@ -25,22 +27,26 @@ int main() {
    // string vendor;
    // string description;
     
+    
     while (ip.good()) { //or EOF: end of file
 
         getline(ip, barcode, ',');
         getline(ip, quantities, ',');
         getline(ip, notes, ',');
         getline(ip, date, '\n');
-       //getline(ip, vendor, ',');
+       // getline(ip, vendor, ',');
        // getline(ip, description, ',');
        // getline(ip, quantities, '\n');
 
+       //input the hex from barcode
+       //...
+
         std::cout << "Barcode: " << barcode << '\n';
         std::cout << "Quantities: " << quantities << '\n';
-        std::cout << "Notes: " << barcode << '\n';
+        std::cout << "Notes: " << notes << '\n';
         std::cout << "Date Scanned: " << date << '\n';
         //std::cout << "Vendor: " << vendor << '\n';
-        std::cout << "-----------------------------------------------" << '\n';
+        std::cout << "-----------------------------------------------------" << '\n';
     }
 
     ip.close();
